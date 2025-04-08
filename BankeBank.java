@@ -11,18 +11,23 @@ public class BankeBank {
         accounts.add(Account);
     }
 
-    public void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount
+    public void deposit(int index,double amount) {
+        if(index >= 0 && index < accounts.size()) {
+            accounts.get(index).deposit(amount);
+        }
+    }
+    public void withdraw(int index,double amount) {
+        if(index >= 0 && index < accounts.size()) {
+            accounts.get(index).withdraw(amount);
         }
     }
 
-    public double checkBalance( double balance)
-    {
-        return balance;
+    public double checkBalance(int index) {
+        if(index >= 0 && index < accounts.size()) {
+            return accounts.get(index).getBalance();
+        }
+        return -1.0;
     }
-
-
 }
 
 

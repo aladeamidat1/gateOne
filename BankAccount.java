@@ -20,9 +20,12 @@ public class BankAccount {
     public double getBalance() {
         return this.balance;
     }
-    public double checkBalance( double balance)
-    {
-        return balance;
+    public void withdraw(double amount) {
+        if(amount > 0 && this.balance >= amount) {
+            this.balance -= amount;
+        }
     }
+
+
 }
 
