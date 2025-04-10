@@ -49,14 +49,14 @@ public class TestBankeBank {
     }
     @Test
     public void testChangePinFail() {
-        banks.createAccount("Emeka", "Chuks", "8888", 300.0);
+        banks.createAccount("suliha", "oderinde", "8888", 300.0);
         banks.changePin(0, "wrongpin", "9999");
         assertFalse(banks.accounts.get(0).verifyPin("9999"));
         assertTrue(banks.accounts.get(0).verifyPin("8888"));
     }
     @Test
     public void testCloseAccountWithCorrectPin() {
-        banks.createAccount("Jane", "Doe", "0000", 100.0);
+        banks.createAccount("majek", "johnson", "0000", 100.0);
         banks.closeAccount(0, "0000");
         assertEquals(0, banks.accounts.size());
     }
@@ -68,8 +68,8 @@ public class TestBankeBank {
     }
     @Test
     public void testTransferBetweenAccounts() {
-        banks.createAccount("Alice", "Wonder", "0001", 200.0); // index 0
-        banks.createAccount("Bob", "Builder", "0002", 100.0);  // index 1
+        banks.createAccount("Alice", "max", "0001", 200.0); // index 0
+        banks.createAccount("ifeanyi", "josh", "0002", 100.0);  // index 1
         int from = 0;
         int to = banks.findAccountById(banks.accounts.get(1).getId());
 

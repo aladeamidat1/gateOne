@@ -23,13 +23,13 @@ public class BankAccount {
     }
 
     public void deposit(double amount) {
-        if(index >= 0 && index < accounts.size()) {
             if (amount > 0) {
-                accounts.get(index).deposit(amount);
-            }else{
+                this.balance += amount;
+            } else {
+
                 System.out.println("cannot deposit zero or negative amount");
             }
-        }
+
     }
 
     public double getBalance() {
