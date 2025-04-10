@@ -20,6 +20,24 @@ public class PeriodTracker {
             int periodLength = validatePeriodLength(cycle);
 
             LocalDate nextPeriod = calculateForNextPeriod(lastPeriod,cycleLength);
+            LocalDate ovulationDate = nextPeriod.minusDays(14);
+            LocalDate fertileStart = ovulationDate.minusDays(5);
+            LocalDate fertileEnd = ovulationDate.plusDays(1);
+
+            LocalDate safePeriodStart1 = fertileEnd.plusDays(1);
+            LocalDate safePeriodEnd1 = fertileStart.minusDays(1);
+
+            LocalDate safePeriodStart2= fertileEnd.plusDays(1);
+            LocalDate safePeriodEnd2 = nextPeriod.minusDays(1);
+
+        System.out.println("\n===== Current Cycle Summary =====");
+        System.out.println("📅 Next Period Start: " + nextPeriod);
+        System.out.println("💧 Expected to end: " + nextPeriod.plusDays(periodLength));
+        System.out.println("🌸 Ovulation Day: " + ovulationDate);
+        System.out.println("💕 Fertile Window: " + fertileStart + " to " + fertileEnd);
+        System.out.println("🛡️ Safe Periods:");
+        System.out.println("- Pre-ovulation safe days: " + safePeriodStart1 + " to " + safePeriodEnd1);
+        System.out.println("- Post-ovulation safe days: " + safePeriodStart2 + " to " + safePeriodEnd2);
 
     }
 
@@ -73,4 +91,11 @@ public class PeriodTracker {
     public static LocalDate calculateForNextPeriod(LocalDate lastPeriod, int cycleLength) {
         return lastPeriod.plusDays(cycleLength);
     }
+
+
 }
+
+
+
+
+

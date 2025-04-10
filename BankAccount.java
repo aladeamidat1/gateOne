@@ -18,6 +18,10 @@ public class BankAccount {
         return Id;
     }
 
+    public String getFirstName() {
+        return FirstName;
+    }
+
     public void deposit(double amount) {
         if(index >= 0 && index < accounts.size()) {
             if (amount > 0) {
